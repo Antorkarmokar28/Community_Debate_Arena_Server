@@ -1,0 +1,13 @@
+import { z } from 'zod';
+
+export const userValidationSchema = z.object({
+  body: z.object({
+    username: z.string().min(1, 'Username is required'),
+    email: z.string().email('Invalid email address'),
+    password: z.string().min(1, 'Password is required'),
+    avatar: z.string().url('Avatar must be a valid URL').optional(),
+    totalVotesReceived: z.number().min(0).default(0),
+    debatesParticipated: z.number().min(0).default(0),
+    isAdmin: z.boolean().default(false),
+  }),
+});
