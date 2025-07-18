@@ -6,7 +6,7 @@ import router from './app/router';
 import globalErrorHandeling from './app/middlewares/globalErrorHandeling';
 const app: Application = express();
 // using parser
-app.use(express());
+app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 // application route

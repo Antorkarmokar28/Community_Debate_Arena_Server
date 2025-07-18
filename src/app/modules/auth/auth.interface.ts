@@ -3,13 +3,18 @@ import { Model } from "mongoose";
 import { User_Role } from "./auth.constant";
 
 export interface IUser {
-  username: string;
+  name: string;
   email: string;
   password: string;
   avatar?: string;
   totalVotesReceived?: number;
   debatesParticipated?: number;
-  isAdmin?: boolean;
+  role: 'user' | 'admin';
+}
+
+export interface ILoginUser {
+  email: string;
+  password: string;
 }
 
 export interface UserModel extends Model<IUser> {
